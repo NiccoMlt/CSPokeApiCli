@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="CommandLineParser" Version="2.7.82" />
+      <PackageReference Include="PokeApiNet" Version="3.0.0" />
     </ItemGroup>
 
 </Project>
