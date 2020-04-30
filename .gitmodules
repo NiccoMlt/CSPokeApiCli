@@ -1,0 +1,4 @@
+[submodule "CsPokeApiCli/ShowdownTeamGrammar"]
+	path = CsPokeApiCli/ShowdownTeamGrammar
+	url = https://github.com/NiccoMlt/ShowdownTeamGrammar.git
+	branch = master
