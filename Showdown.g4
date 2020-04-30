@@ -39,6 +39,6 @@ fragment DIGIT          :   '0'..'9' ;
 COLON                   :   ':' ;
 NEWLINE                 :   '\r' '\n' | '\n' | '\r' ;
 NUMBER                  :   DIGIT+;
-WORD                    :   (LOWERCASE | UPPERCASE | '-' | '\'')+ ;
+WORD                    :   (LOWERCASE | UPPERCASE | '-' | '\'' | '[' | ']')+ ;
 WHITESPACE              :   ' ' -> skip;
 ANY                     :   . ;
