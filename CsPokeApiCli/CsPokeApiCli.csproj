@@ -8,9 +8,23 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="BetterConsoleTables" Version="1.1.2" />
-      <PackageReference Include="CommandLineParser" Version="2.7.82" />
-      <PackageReference Include="PokeApiNet" Version="3.0.0" />
+        <Antlr4 Include="ShowdownTeamGrammar/Showdown.g4">
+            <Listener>false</Listener>
+            <Visitor>true</Visitor>
+            <Package>io.github.niccomlt.showdown</Package>
+            <Error>true</Error>
+        </Antlr4>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+        <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />
+        <PackageReference Include="CommandLineParser" Version="2.7.82" />
+        <PackageReference Include="PokeApiNet" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="dummy.sdt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>

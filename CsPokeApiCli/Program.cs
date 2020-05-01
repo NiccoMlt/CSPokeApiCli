@@ -1,25 +1,41 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using Antlr4.Runtime;
 using CommandLine;
-using PokeApiNet;
+using io.github.niccomlt.showdown;
 
 namespace CsPokeApiCli
 {
+    class ShowdownOptions
+    {
+        public ShowdownOptions(string path)
+        {
+            Path = path;
+        }
+
+        [Option(shortName: 'i', longName: "input-team", Required = true)]
+        public string Path { get; }
+    }
     internal static class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-            var pokeClient = new PokeApiClient();
-            var result = Parser.Default.ParseArguments<TypeOptions, StatsOptions>(args)
-                .MapResult<IPokemonOptions, Task<Pokemon?>>(
-                    opts => pokeClient.GetResourceAsync<Pokemon?>(opts.PokemonName),
-                    _ => Task.FromResult<Pokemon?>(null));
-            var pkmn = await result;
-            if (pkmn != null)
-            {
-                Console.WriteLine($"{pkmn.Name}: {string.Join(", ", pkmn.Types.Select(t => t.Type.Name))}");
-            }
+            var input = CommandLine.Parser
+                .Default
+                .ParseArguments<ShowdownOptions>(args)
+                .MapResult(opts => opts.Path, _ => null!);
+            var str = new AntlrInputStream(new StreamReader(
+                Environment.CurrentDirectory
+                + Path.DirectorySeparatorChar
+                + input));
+            var lexer = new ShowdownLexer(str);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            var errorListener = new ConsoleErrorListener<IToken>();
+            parser.AddErrorListener(errorListener);
+
+            var tree = parser.team();
+            var visitor = new ShowdownTeamVisitor();
         }
     }
 }
