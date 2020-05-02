@@ -6,11 +6,11 @@ pokemon     :   ((nickname '(' name ')') | name) ('(' sex ')')? item? NEWLINE
                 'Ability' COLON ability NEWLINE
                 ('Level' COLON NUMBER NEWLINE)?
                 ('Shiny' COLON shiny NEWLINE)?
-                ('Happiness' COLON happyness NEWLINE)?
-                ('EVs' COLON stat NEWLINE)?
+                ('Happiness' COLON happiness NEWLINE)?
+                (evs NEWLINE)?
                 (nature 'Nature' NEWLINE)?
-                ('IVs' COLON stat NEWLINE)?
-                ('-' move NEWLINE)+;
+                (ivs NEWLINE)?
+                moves;
 
 nickname    :   WORD;
 
@@ -24,18 +24,32 @@ ability     :   WORD+;
 
 shiny       :   'Yes';
 
-happyness   :   NUMBER;
+happiness   :   NUMBER;
 
-stat        :   (NUMBER ('HP' | 'Atk' | 'Def' | 'SpA' | 'SpD' | 'Spe') '/'?)+;
+evs         :   'EVs' COLON stats;
+
+stats       :   (stat '/'?)+;
+
+stat        :   NUMBER (HP | ATK | DEF | SP_ATK | SP_DEF | SPE);
 
 nature      :   WORD;
+
+ivs         :   'IVs' COLON stats;
+
+moves       :   ('-' move NEWLINE)+;
 
 move        :   WORD+;
 
 fragment LOWERCASE      :   [a-z];
-fragment UPPERCASE      :   [A-Z] ;
-fragment DIGIT          :   '0'..'9' ;
+fragment UPPERCASE      :   [A-Z];
+fragment DIGIT          :   [0-9];
 
+HP                      :   'HP';
+ATK                     :   'Atk';
+DEF                     :   'Def';
+SP_ATK                  :   'SpA';
+SP_DEF                  :   'SpD';
+SPE                     :   'Spe';
 COLON                   :   ':' ;
 NEWLINE                 :   '\r' '\n' | '\n' | '\r' ;
 NUMBER                  :   DIGIT+;
