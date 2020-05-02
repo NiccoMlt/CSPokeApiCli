@@ -1,11 +1,11 @@
-﻿using System;
-using System.IO;
-using Antlr4.Runtime;
-using CommandLine;
-using io.github.niccomlt.showdown;
-
-namespace CsPokeApiCli
+﻿namespace CsPokeApiCli
 {
+    using System;
+    using System.IO;
+    using Antlr4.Runtime;
+    using CommandLine;
+    using io.github.niccomlt.showdown;
+
     class ShowdownOptions
     {
         public ShowdownOptions(string path)
@@ -35,7 +35,8 @@ namespace CsPokeApiCli
             parser.AddErrorListener(errorListener);
 
             var tree = parser.team();
-            var visitor = new ShowdownTeamVisitor();
+            var visitor = new ShowdownObjectVisitor();
+            visitor.Visit(tree);
         }
     }
 }
