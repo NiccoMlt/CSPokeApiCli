@@ -17,6 +17,16 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Install ANTLR 4
+        run: |
+          cd /usr/local/lib
+          curl -O https://www.antlr.org/download/antlr-4.8-complete.jar
+          export Antlr4ToolPath="/usr/local/lib/antlr-4.8-complete.jar"
+          export CLASSPATH=".:$Antlr4ToolPath:$CLASSPATH"
       - name: Install dependencies
         run: dotnet restore
       - name: Build
