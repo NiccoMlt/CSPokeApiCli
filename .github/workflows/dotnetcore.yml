@@ -24,8 +24,8 @@ jobs:
       - name: Install ANTLR 4
         run: |
           curl -O https://www.antlr.org/download/antlr-4.8-complete.jar
-          export Antlr4ToolPath="$HOME/antlr-4.8-complete.jar"
-          export CLASSPATH=".:$Antlr4ToolPath:$CLASSPATH"
+          ::set-env name=Antlr4ToolPath::"$HOME/antlr-4.8-complete.jar"
+          ::set-env name=CLASSPATH::".:$Antlr4ToolPath:$CLASSPATH"
       - name: Install dependencies
         run: dotnet restore
       - name: Build
