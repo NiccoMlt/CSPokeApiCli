@@ -7,12 +7,6 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <!--    <ItemGroup>-->
-    <!--        <Antlr4 Include="arithmetic.g4">-->
-    <!--            <Package>PokeCLI</Package>-->
-    <!--        </Antlr4>-->
-    <!--    </ItemGroup>-->
-
     <ItemGroup>
         <Antlr4 Include="Showdown/Grammar/Showdown.g4">
             <Listener>false</Listener>
