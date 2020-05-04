@@ -7,12 +7,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-<!--    <ItemGroup>-->
-<!--        <Antlr4 Include="arithmetic.g4">-->
-<!--            <Package>PokeCLI</Package>-->
-<!--        </Antlr4>-->
-<!--    </ItemGroup>-->
-    
+    <!--    <ItemGroup>-->
+    <!--        <Antlr4 Include="arithmetic.g4">-->
+    <!--            <Package>PokeCLI</Package>-->
+    <!--        </Antlr4>-->
+    <!--    </ItemGroup>-->
+
     <ItemGroup>
         <Antlr4 Include="Showdown/Grammar/Showdown.g4">
             <Listener>false</Listener>
@@ -23,17 +23,20 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
-        <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />
-        <PackageReference Include="CommandLineParser" Version="2.8.0" />
-        <PackageReference Include="PokeApiNet" Version="3.0.0" />
-        <PackageReference Include="System.CodeDom" Version="4.7.0" />
+        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0"/>
+        <PackageReference Include="Antlr4BuildTasks" Version="3.0.0"/>
+        <PackageReference Include="CommandLineParser" Version="2.8.0"/>
+        <PackageReference Include="PokeApiNet" Version="3.0.0"/>
+        <PackageReference Include="System.CodeDom" Version="4.7.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="reference\**" />
-      <EmbeddedResource Remove="reference\**" />
-      <None Remove="reference\**" />
+        <Compile Remove="resources\**"/>
+        <EmbeddedResource Remove="resources\**"/>
+        <None Remove="resources\**"/>
+        <None Include="resources\dummy.sdt"
+              CopyToPublishDirectory="PreserveNewest"
+              CopyToOutputDirectory="PreserveNewest"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
