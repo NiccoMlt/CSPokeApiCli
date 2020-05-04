@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using CommandLine;
 
-namespace CsPokeApiCli
+namespace PokeCLI
 {
+
     interface IPokemonOptions
     {
         [Option(shortName: 'p', longName: "pokemon-name", Group = "pokemon", HelpText = "Input the Pokemon name")]

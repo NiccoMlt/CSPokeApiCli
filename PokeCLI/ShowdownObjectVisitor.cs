@@ -1,16 +1,15 @@
-namespace CsPokeApiCli
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using Antlr4.Runtime;
-    using CsPokeApiCli.Showdown;
-    using io.github.niccomlt.showdown;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
+namespace PokeCLI
+{
+    using Showdown;
+    using Showdown.Grammar;
     public class ShowdownObjectVisitor : ShowdownBaseVisitor<object?>
     {
-        private List<Pokemon> ParsedTeam = new List<Pokemon>(6);
+        // private List<Pokemon> ParsedTeam = new List<Pokemon>(6);
 
         // public override object? VisitTeam(ShowdownParser.TeamContext context)
         // {

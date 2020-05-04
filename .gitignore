@@ -1,5 +1,6 @@
-# Created by https://www.gitignore.io/api/osx,git,rider,linux,macos,csharp,windows,visualstudio,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=osx,git,rider,linux,macos,csharp,windows,visualstudio,visualstudiocode
+
+# Created by https://www.gitignore.io/api/osx,git,rider,linux,macos,csharp,windows,monodevelop,visualstudio,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=osx,git,rider,linux,macos,csharp,windows,monodevelop,visualstudio,visualstudiocode
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -408,6 +409,14 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### MonoDevelop ###
+#User Specific
+*.usertasks
+
+#Mono Project Files
+*.resources
+test-results/
+
 ### OSX ###
 # General
 
@@ -682,4 +691,4 @@ $RECYCLE.BIN/
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 
-# End of https://www.gitignore.io/api/osx,git,rider,linux,macos,csharp,windows,visualstudio,visualstudiocode
+# End of https://www.gitignore.io/api/osx,git,rider,linux,macos,csharp,windows,monodevelop,visualstudio,visualstudiocode

@@ -1,10 +1,11 @@
-﻿namespace CsPokeApiCli
+﻿using System;
+using System.IO;
+using Antlr4.Runtime;
+using CommandLine;
+
+namespace PokeCLI
 {
-    using System;
-    using System.IO;
-    using Antlr4.Runtime;
-    using CommandLine;
-    using io.github.niccomlt.showdown;
+    using Showdown.Grammar;
 
     class ShowdownOptions
     {

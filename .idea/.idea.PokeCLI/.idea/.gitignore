@@ -3,9 +3,9 @@
 /workspace.xml
 # Rider ignored files
 /modules.xml
+/.idea.PokeCLI.iml
 /contentModel.xml
 /projectSettingsUpdater.xml
-/.idea.CsPokeApiCli.iml
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml

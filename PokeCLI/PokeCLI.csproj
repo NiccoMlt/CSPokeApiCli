@@ -7,11 +7,17 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+<!--    <ItemGroup>-->
+<!--        <Antlr4 Include="arithmetic.g4">-->
+<!--            <Package>PokeCLI</Package>-->
+<!--        </Antlr4>-->
+<!--    </ItemGroup>-->
+    
     <ItemGroup>
-        <Antlr4 Include="ShowdownTeamGrammar/Showdown.g4">
+        <Antlr4 Include="Showdown/Grammar/Showdown.g4">
             <Listener>false</Listener>
             <Visitor>true</Visitor>
-            <Package>io.github.niccomlt.showdown</Package>
+            <Package>PokeCLI.Showdown.Grammar</Package>
             <Error>true</Error>
         </Antlr4>
     </ItemGroup>
@@ -19,12 +25,19 @@
     <ItemGroup>
         <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
         <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />
-        <PackageReference Include="CommandLineParser" Version="2.7.82" />
+        <PackageReference Include="CommandLineParser" Version="2.8.0" />
         <PackageReference Include="PokeApiNet" Version="3.0.0" />
+        <PackageReference Include="System.CodeDom" Version="4.7.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="dummy.sdt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+      <Compile Remove="reference\**" />
+      <EmbeddedResource Remove="reference\**" />
+      <None Remove="reference\**" />
     </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <NoWarn>3021;1701;1702</NoWarn>
+    </PropertyGroup>
 
 </Project>
