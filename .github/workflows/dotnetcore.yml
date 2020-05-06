@@ -22,10 +22,7 @@ jobs:
         with:
           java-version: 11
       - name: Install ANTLR 4
-        run: |
-          curl -O https://www.antlr.org/download/antlr-4.8-complete.jar
-          echo "::set-env name=Antlr4ToolPath::$HOME/antlr-4.8-complete.jar"
-          echo "::set-env name=CLASSPATH::.:$Antlr4ToolPath:$CLASSPATH"
+        uses: NiccoMlt/setup-antlr4@v0.0.1
       - name: Install dependencies
         run: dotnet restore
       - name: Build
