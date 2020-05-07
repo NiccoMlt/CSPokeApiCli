@@ -4,7 +4,7 @@ team        :   (pokemon NEWLINE?)+ EOF;
 
 pokemon     :   ((nickname '(' name ')') | name) ('(' sex ')')? item? NEWLINE
                 'Ability' COLON ability NEWLINE
-                ('Level' COLON NUMBER NEWLINE)?
+                ('Level' COLON level NEWLINE)?
                 ('Shiny' COLON shiny NEWLINE)?
                 ('Happiness' COLON happiness NEWLINE)?
                 (evs NEWLINE)?
@@ -21,6 +21,8 @@ sex         :   'M' | 'F';
 item        :   '@'? WORD+;
 
 ability     :   WORD+;
+
+level       :   NUMBER;
 
 shiny       :   'Yes';
 
