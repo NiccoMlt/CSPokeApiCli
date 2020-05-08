@@ -20,6 +20,10 @@
         <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
         <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />
         <PackageReference Include="CommandLineParser" Version="2.8.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="PokeApiNet" Version="3.0.0" />
         <PackageReference Include="System.CodeDom" Version="4.7.0" />
     </ItemGroup>
