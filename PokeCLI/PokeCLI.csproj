@@ -7,18 +7,18 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <Antlr4 Include="Showdown/Grammar/Showdown.g4">
-            <Listener>false</Listener>
-            <Visitor>true</Visitor>
-            <Package>PokeCLI.Showdown.Grammar</Package>
-            <Error>true</Error>
-        </Antlr4>
-    </ItemGroup>
+<!--    <ItemGroup>-->
+<!--        <Antlr4 Include="Showdown/Grammar/Showdown.g4">-->
+<!--            <Listener>false</Listener>-->
+<!--            <Visitor>true</Visitor>-->
+<!--            <Package>PokeCLI.Showdown.Grammar</Package>-->
+<!--            <Error>true</Error>-->
+<!--        </Antlr4>-->
+<!--    </ItemGroup>-->
 
     <ItemGroup>
         <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
-        <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />
+<!--        <PackageReference Include="Antlr4BuildTasks" Version="3.0.0" />-->
         <PackageReference Include="CommandLineParser" Version="2.8.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
           <PrivateAssets>all</PrivateAssets>

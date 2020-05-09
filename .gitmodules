@@ -1,4 +1,0 @@
-[submodule "PokeCLI/Showdown/Grammar"]
-	path = PokeCLI/Showdown/Grammar
-	url = https://github.com/NiccoMlt/ShowdownTeamGrammar.git
-	branch = master
