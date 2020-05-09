@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Antlr4.Runtime;
 using CommandLine;
+using PokeCLI.Showdown;
 
 namespace PokeCLI
 {
@@ -9,13 +11,13 @@ namespace PokeCLI
 
     class ShowdownOptions
     {
-        public ShowdownOptions(string path)
+        public ShowdownOptions(string inputPath)
         {
-            Path = path;
+            InputPath = inputPath;
         }
 
         [Option(shortName: 'i', longName: "input-team", Required = true)]
-        public string Path { get; }
+        public string InputPath { get; }
     }
     internal static class Program
     {
@@ -24,7 +26,7 @@ namespace PokeCLI
             var input = CommandLine.Parser
                 .Default
                 .ParseArguments<ShowdownOptions>(args)
-                .MapResult(opts => opts.Path, _ => null!);
+                .MapResult(opts => opts.InputPath, _ => null!);
             var str = new AntlrInputStream(new StreamReader(
                 Environment.CurrentDirectory
                 + Path.DirectorySeparatorChar
@@ -37,7 +39,7 @@ namespace PokeCLI
 
             var tree = parser.team();
             var visitor = new ShowdownObjectVisitor();
-            visitor.Visit(tree);
+            var team = visitor.Visit(tree) as IList<PokemonSet>;
         }
     }
 }
