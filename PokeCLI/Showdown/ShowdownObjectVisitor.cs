@@ -12,14 +12,17 @@ namespace PokeCLI.Showdown
         public override object VisitTeam([NotNull] ShowdownParser.TeamContext context)
         {
             var parsedTeam = new List<PokemonSet>(6);
-            var pokemons = context.children.OfType<ShowdownParser.PokemonContext>();
+            var pokemons = context
+                ?.children
+                ?.OfType<ShowdownParser.PokemonContext>()
+                           ?? Enumerable.Empty<ShowdownParser.PokemonContext>();
 
             foreach (var pkmn in pokemons)
             {
                 VisitPokemon(pkmn);
             }
 
-            Console.WriteLine(parsedTeam.Count());
+            Console.WriteLine(parsedTeam.Count);
 
             return parsedTeam;
         }
@@ -81,9 +84,10 @@ namespace PokeCLI.Showdown
             .ToDictionary(pair => pair?.Item1, pair => pair?.Item2);
 
         [return: NotNull]
-        public override object VisitStat(ShowdownParser.StatContext context) => (
-            int.Parse(context.children[0].GetText()),
-            context.children[1].GetText());
+        public override object VisitStat(ShowdownParser.StatContext context) => new KeyValuePair<Statistic, int>(
+            Enum.Parse<Statistic>(context.children[1].GetText(), true),
+            int.Parse(context.children[0].GetText())
+        );
 
         [return: NotNull]
         public override object VisitNature(ShowdownParser.NatureContext context) => context.GetText();

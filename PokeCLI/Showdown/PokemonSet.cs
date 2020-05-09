@@ -2,14 +2,6 @@ using System.Collections.Generic;
 
 namespace PokeCLI.Showdown
 {
-    public interface IStatSpread : IDictionary<Statistic, int>
-    {
-    }
-
-    public interface IMoveSet : ISet<string> // TODO: replace with actual move class
-    {
-    }
-
     public enum Sex
     {
         Male,
