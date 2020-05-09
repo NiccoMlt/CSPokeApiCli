@@ -33,7 +33,7 @@
         <Compile Remove="resources\**" />
         <EmbeddedResource Remove="resources\**" />
         <None Remove="resources\**" />
-        <None Include="resources\dummy.sdt" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
+        <None Include="Resources\dummy.sdt" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

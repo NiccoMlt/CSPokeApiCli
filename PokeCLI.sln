@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeCLI", "PokeCLI\PokeCLI.csproj", "{55D2686A-DEF7-4AD1-9DBA-B5B534C451E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPokeCLI", "TestPokeCLI\TestPokeCLI.csproj", "{71E4B356-CB8C-45E1-8A40-1E8FFD60602B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeCLI.Tests", "PokeCLI.Tests\PokeCLI.Tests.csproj", "{71E4B356-CB8C-45E1-8A40-1E8FFD60602B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

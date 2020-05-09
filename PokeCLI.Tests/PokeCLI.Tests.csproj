@@ -5,6 +5,7 @@
         <LangVersion>8</LangVersion>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <RootNamespace>PokeCLI.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

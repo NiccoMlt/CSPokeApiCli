@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 
-namespace TestPokeCLI
+namespace PokeCLI.Tests
 {
     public class UnitTest1
     {
