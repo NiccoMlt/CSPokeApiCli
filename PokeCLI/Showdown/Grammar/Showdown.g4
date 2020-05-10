@@ -56,5 +56,5 @@ COLON                   :   ':' ;
 NEWLINE                 :   '\r' '\n' | '\n' | '\r' ;
 NUMBER                  :   DIGIT+;
 WORD                    :   (LOWERCASE | UPPERCASE | '-' | '\'' | '[' | ']')+ ;
-WHITESPACE              :   ' ' -> skip;
+WHITESPACE              :   ' ' -> channel(HIDDEN);
 ANY                     :   . ;

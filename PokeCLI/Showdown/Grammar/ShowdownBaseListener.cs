@@ -19,238 +19,238 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+namespace PokeCLI.Showdown.Grammar {
 
 using Antlr4.Runtime.Misc;
 using IErrorNode = Antlr4.Runtime.Tree.IErrorNode;
 using ITerminalNode = Antlr4.Runtime.Tree.ITerminalNode;
+using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
-namespace PokeCLI.Showdown.Grammar
-{
-    /// <summary>
-    /// This class provides an empty implementation of <see cref="IShowdownListener"/>,
-    /// which can be extended to create a listener which only needs to handle a subset
-    /// of the available methods.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.8")]
-    [System.CLSCompliant(false)]
-    public partial class ShowdownBaseListener : IShowdownListener {
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.team"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterTeam([NotNull] ShowdownParser.TeamContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.team"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitTeam([NotNull] ShowdownParser.TeamContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.pokemon"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterPokemon([NotNull] ShowdownParser.PokemonContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.pokemon"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitPokemon([NotNull] ShowdownParser.PokemonContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.nickname"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterNickname([NotNull] ShowdownParser.NicknameContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.nickname"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitNickname([NotNull] ShowdownParser.NicknameContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.name"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterName([NotNull] ShowdownParser.NameContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.name"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitName([NotNull] ShowdownParser.NameContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.sex"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterSex([NotNull] ShowdownParser.SexContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.sex"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitSex([NotNull] ShowdownParser.SexContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.item"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterItem([NotNull] ShowdownParser.ItemContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.item"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitItem([NotNull] ShowdownParser.ItemContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.ability"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterAbility([NotNull] ShowdownParser.AbilityContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.ability"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitAbility([NotNull] ShowdownParser.AbilityContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.level"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterLevel([NotNull] ShowdownParser.LevelContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.level"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitLevel([NotNull] ShowdownParser.LevelContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.shiny"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterShiny([NotNull] ShowdownParser.ShinyContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.shiny"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitShiny([NotNull] ShowdownParser.ShinyContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.happiness"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterHappiness([NotNull] ShowdownParser.HappinessContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.happiness"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitHappiness([NotNull] ShowdownParser.HappinessContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.evs"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterEvs([NotNull] ShowdownParser.EvsContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.evs"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitEvs([NotNull] ShowdownParser.EvsContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.stats"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterStats([NotNull] ShowdownParser.StatsContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.stats"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitStats([NotNull] ShowdownParser.StatsContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.stat"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterStat([NotNull] ShowdownParser.StatContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.stat"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitStat([NotNull] ShowdownParser.StatContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.nature"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterNature([NotNull] ShowdownParser.NatureContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.nature"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitNature([NotNull] ShowdownParser.NatureContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.ivs"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterIvs([NotNull] ShowdownParser.IvsContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.ivs"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitIvs([NotNull] ShowdownParser.IvsContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.moves"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterMoves([NotNull] ShowdownParser.MovesContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.moves"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitMoves([NotNull] ShowdownParser.MovesContext context) { }
-        /// <summary>
-        /// Enter a parse tree produced by <see cref="ShowdownParser.move"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void EnterMove([NotNull] ShowdownParser.MoveContext context) { }
-        /// <summary>
-        /// Exit a parse tree produced by <see cref="ShowdownParser.move"/>.
-        /// <para>The default implementation does nothing.</para>
-        /// </summary>
-        /// <param name="context">The parse tree.</param>
-        public virtual void ExitMove([NotNull] ShowdownParser.MoveContext context) { }
+/// <summary>
+/// This class provides an empty implementation of <see cref="IShowdownListener"/>,
+/// which can be extended to create a listener which only needs to handle a subset
+/// of the available methods.
+/// </summary>
+[System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.8")]
+[System.CLSCompliant(false)]
+public partial class ShowdownBaseListener : IShowdownListener {
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.team"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterTeam([NotNull] ShowdownParser.TeamContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.team"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitTeam([NotNull] ShowdownParser.TeamContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.pokemon"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPokemon([NotNull] ShowdownParser.PokemonContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.pokemon"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPokemon([NotNull] ShowdownParser.PokemonContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.nickname"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterNickname([NotNull] ShowdownParser.NicknameContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.nickname"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitNickname([NotNull] ShowdownParser.NicknameContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterName([NotNull] ShowdownParser.NameContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitName([NotNull] ShowdownParser.NameContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.sex"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterSex([NotNull] ShowdownParser.SexContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.sex"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitSex([NotNull] ShowdownParser.SexContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.item"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterItem([NotNull] ShowdownParser.ItemContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.item"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitItem([NotNull] ShowdownParser.ItemContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.ability"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAbility([NotNull] ShowdownParser.AbilityContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.ability"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAbility([NotNull] ShowdownParser.AbilityContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.level"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLevel([NotNull] ShowdownParser.LevelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.level"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLevel([NotNull] ShowdownParser.LevelContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.shiny"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterShiny([NotNull] ShowdownParser.ShinyContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.shiny"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitShiny([NotNull] ShowdownParser.ShinyContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.happiness"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterHappiness([NotNull] ShowdownParser.HappinessContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.happiness"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitHappiness([NotNull] ShowdownParser.HappinessContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.evs"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterEvs([NotNull] ShowdownParser.EvsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.evs"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitEvs([NotNull] ShowdownParser.EvsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.stats"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterStats([NotNull] ShowdownParser.StatsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.stats"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitStats([NotNull] ShowdownParser.StatsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterStat([NotNull] ShowdownParser.StatContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitStat([NotNull] ShowdownParser.StatContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.nature"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterNature([NotNull] ShowdownParser.NatureContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.nature"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitNature([NotNull] ShowdownParser.NatureContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.ivs"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterIvs([NotNull] ShowdownParser.IvsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.ivs"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitIvs([NotNull] ShowdownParser.IvsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.moves"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterMoves([NotNull] ShowdownParser.MovesContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.moves"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitMoves([NotNull] ShowdownParser.MovesContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ShowdownParser.move"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterMove([NotNull] ShowdownParser.MoveContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ShowdownParser.move"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitMove([NotNull] ShowdownParser.MoveContext context) { }
 
-        /// <inheritdoc/>
-        /// <remarks>The default implementation does nothing.</remarks>
-        public virtual void EnterEveryRule([NotNull] ParserRuleContext context) { }
-        /// <inheritdoc/>
-        /// <remarks>The default implementation does nothing.</remarks>
-        public virtual void ExitEveryRule([NotNull] ParserRuleContext context) { }
-        /// <inheritdoc/>
-        /// <remarks>The default implementation does nothing.</remarks>
-        public virtual void VisitTerminal([NotNull] ITerminalNode node) { }
-        /// <inheritdoc/>
-        /// <remarks>The default implementation does nothing.</remarks>
-        public virtual void VisitErrorNode([NotNull] IErrorNode node) { }
-    }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void EnterEveryRule([NotNull] ParserRuleContext context) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void ExitEveryRule([NotNull] ParserRuleContext context) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void VisitTerminal([NotNull] ITerminalNode node) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void VisitErrorNode([NotNull] IErrorNode node) { }
 }
+} // namespace PokeCLI.Showdown.Grammar

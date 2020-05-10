@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using PokeCLI.Showdown.Grammar;
 
 namespace PokeCLI.Showdown
 {
-    public class ShowdownObjectVisitor : ShowdownBaseVisitor<object?>
+    internal class ShowdownObjectVisitor : ShowdownBaseVisitor<object?>
     {
         [return: NotNull]
         public override object VisitTeam([NotNull] ShowdownParser.TeamContext context)
         {
             var parsedTeam = new List<PokemonSet>(6);
             var pokemons = context
-                ?.children
-                ?.OfType<ShowdownParser.PokemonContext>()
+                               ?.children
+                               ?.OfType<ShowdownParser.PokemonContext>()
                            ?? Enumerable.Empty<ShowdownParser.PokemonContext>();
 
             foreach (var pkmn in pokemons)
@@ -52,7 +53,7 @@ namespace PokeCLI.Showdown
         public override object? VisitNickname([MaybeNull] ShowdownParser.NicknameContext? context) => context?.GetText();
 
         [return: NotNull]
-        public override object VisitName(ShowdownParser.NameContext context) => context.GetText();
+        public override object VisitName([NotNull] ShowdownParser.NameContext context) => context.GetText();
 
         [return: NotNullIfNotNull("context")]
         public override object? VisitSex([MaybeNull] ShowdownParser.SexContext? context) => context?.GetText();
@@ -66,9 +67,8 @@ namespace PokeCLI.Showdown
         public override object VisitAbility(ShowdownParser.AbilityContext context) => context.GetText();
 
         [return: NotNull]
-        public override object VisitShiny(ShowdownParser.ShinyContext? context) => context
-            ?.GetText()
-            .Equals("Yes") ?? false;
+        public override object VisitShiny(ShowdownParser.ShinyContext? context) =>
+            context?.GetText().Equals("Yes", StringComparison.InvariantCulture) ?? false;
 
         [return: NotNull]
         public override object VisitLevel(ShowdownParser.LevelContext? context) =>
@@ -76,17 +76,17 @@ namespace PokeCLI.Showdown
 
         [return: NotNull]
         public override object VisitHappiness(ShowdownParser.HappinessContext? context) =>
-            int.TryParse(context?.GetText(), out var happinesss) ? happinesss : 255;
+            int.TryParse(context?.GetText(), out var happiness) ? happiness : 255;
 
         [return: NotNull]
         public override object VisitStats(ShowdownParser.StatsContext context) => context.stat()
-            .Select(stat => ((Statistic, int)?) VisitStat(stat))
-            .ToDictionary(pair => pair?.Item1, pair => pair?.Item2);
+            .Select(stat => (KeyValuePair<Statistic, int>) VisitStat(stat))
+            .ToDictionary(pair => pair.Key, pair => pair.Value);
 
         [return: NotNull]
         public override object VisitStat(ShowdownParser.StatContext context) => new KeyValuePair<Statistic, int>(
             Enum.Parse<Statistic>(context.children[1].GetText(), true),
-            int.Parse(context.children[0].GetText())
+            int.Parse(context.children[0].GetText(), CultureInfo.InvariantCulture)
         );
 
         [return: NotNull]
@@ -99,6 +99,14 @@ namespace PokeCLI.Showdown
 
         [return: NotNull]
         public override object VisitMove(ShowdownParser.MoveContext context) => context.GetText();
+
+        public override object? VisitEvs(ShowdownParser.EvsContext context) => context != null
+            ? VisitStats(context.stats())
+            : new Dictionary<Statistic, int>();
+
+        public override object? VisitIvs(ShowdownParser.IvsContext context) => context != null
+            ? VisitStats(context.stats())
+            : new Dictionary<Statistic, int>();
 
         /***********************************************************************************/
 

@@ -19,9 +19,9 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+namespace PokeCLI.Showdown.Grammar {
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
-using PokeCLI.Showdown.Grammar;
 using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
@@ -205,3 +205,4 @@ public partial class ShowdownBaseVisitor<Result> : AbstractParseTreeVisitor<Resu
 	/// <return>The visitor result.</return>
 	public virtual Result VisitMove([NotNull] ShowdownParser.MoveContext context) { return VisitChildren(context); }
 }
+} // namespace PokeCLI.Showdown.Grammar
