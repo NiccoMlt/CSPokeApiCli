@@ -29,9 +29,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Remove="resources\**" />
-        <EmbeddedResource Remove="resources\**" />
-        <None Remove="resources\**" />
+        <Compile Remove="Resources\**" />
+        <EmbeddedResource Remove="Resources\**" />
+        <None Remove="Resources\**" />
         <None Include="Resources\dummy.sdt" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 

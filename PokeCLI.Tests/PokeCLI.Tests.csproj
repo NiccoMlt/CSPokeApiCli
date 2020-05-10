@@ -22,4 +22,16 @@
         <PackageReference Include="coverlet.collector" Version="1.2.1" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\PokeCLI\PokeCLI.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Resources\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
+        <None Update="Resources\Se-JunPachirisu.sdt">
+          <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>
