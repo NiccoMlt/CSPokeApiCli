@@ -2,7 +2,7 @@ grammar Showdown;
 
 team        :   (pokemon NEWLINE?)+ EOF;
 
-pokemon     :   ((nickname '(' name ')') | name) ('(' sex ')')? item? NEWLINE
+pokemon     :   ((nickname '(' name ')') | name) ('(' sex ')')? ('@' item)? NEWLINE
                 'Ability' COLON ability NEWLINE
                 ('Level' COLON level NEWLINE)?
                 ('Shiny' COLON shiny NEWLINE)?
@@ -18,7 +18,7 @@ name        :   WORD;
 
 sex         :   'M' | 'F';
 
-item        :   '@'? WORD+;
+item        :   WORD+;
 
 ability     :   WORD+;
 
@@ -38,7 +38,7 @@ nature      :   WORD;
 
 ivs         :   'IVs' COLON stats;
 
-moves       :   ('-' move NEWLINE)+;
+moves       :   (DASH move NEWLINE)+;
 
 move        :   WORD+;
 
@@ -55,6 +55,7 @@ SPE                     :   'Spe';
 COLON                   :   ':' ;
 NEWLINE                 :   '\r' '\n' | '\n' | '\r' ;
 NUMBER                  :   DIGIT+;
+DASH                    :   '-' ;
 WORD                    :   (LOWERCASE | UPPERCASE | '-' | '\'' | '[' | ']')+ ;
 WHITESPACE              :   ' ' -> channel(HIDDEN);
 ANY                     :   . ;
