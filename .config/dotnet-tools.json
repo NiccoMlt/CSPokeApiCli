@@ -1,5 +1,12 @@
 {
   "version": 1,
   "isRoot": true,
-  "tools": {}
+  "tools": {
+    "codecov.tool": {
+      "version": "1.10.0",
+      "commands": [
+        "codecov"
+      ]
+    }
+  }
 }
