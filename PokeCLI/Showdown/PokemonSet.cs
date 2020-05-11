@@ -12,7 +12,7 @@ namespace PokeCLI.Showdown
     public interface IPokemonSet
     {
         string Nickname { get; }
-        string Pokemon { get; } // TODO: replace with actual specie class
+        string Specie { get; } // TODO: replace with actual specie class
         string? Item { get; } // TODO: replace with actual item class
 
         string Ability { get; } // TODO: replace with actual ability class
@@ -32,7 +32,7 @@ namespace PokeCLI.Showdown
         string Nature { get; }
     }
 
-    class PokemonSet : IPokemonSet
+    public class PokemonSet : IPokemonSet
     {
         public PokemonSet(string? nickname,
             string pokemon,
@@ -47,7 +47,7 @@ namespace PokeCLI.Showdown
             IDictionary<Statistic, int>? ivs = null)
         {
             Nickname = nickname ?? pokemon;
-            Pokemon = pokemon;
+            Specie = pokemon;
             Item = item;
             Ability = ability;
             Moves = moves;
@@ -76,7 +76,7 @@ namespace PokeCLI.Showdown
         }
 
         public string Nickname { get; }
-        public string Pokemon { get; }
+        public string Specie { get; }
         public string? Item { get; }
         public string Ability { get; }
         public IList<string> Moves { get; }

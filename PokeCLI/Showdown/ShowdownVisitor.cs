@@ -1,28 +1,44 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using PokeCLI.Showdown.Grammar;
 
 namespace PokeCLI.Showdown
 {
     public class ShowdownVisitor
     {
-        private IShowdownVisitor<object> _visitor;
+        private readonly IShowdownVisitor<object?> _visitor;
 
-        public ShowdownVisitor(IShowdownVisitor<object> visitor)
+        public ShowdownVisitor() : this(new ShowdownObjectVisitor())
+        {
+        }
+
+        public ShowdownVisitor(IShowdownVisitor<object?> visitor)
         {
             _visitor = visitor;
         }
 
-        public IList<IPokemonSet> VisitTeam(ShowdownParser.TeamContext context) => _visitor.VisitTeam(context) as IList<IPokemonSet>;
+        [return: NotNull]
+        public IList<IPokemonSet> VisitTeam([NotNull] ShowdownParser.TeamContext context) =>
+            _visitor.VisitTeam(context) as IList<IPokemonSet>
+            ?? throw new ShowdownSemanticException("Team should not be null");
 
-        public IPokemonSet VisitPokemon(ShowdownParser.PokemonContext context) => _visitor.VisitPokemon(context) as IPokemonSet;
+        [return: NotNull]
+        public IPokemonSet VisitPokemon([NotNull] ShowdownParser.PokemonContext context) =>
+            _visitor.VisitPokemon(context) as IPokemonSet
+            ?? throw new ShowdownSemanticException("PokemonSet should not be null");
 
-        public string? VisitNickname(ShowdownParser.NicknameContext? context) => _visitor.VisitNickname(context) as string ?? null;
+        [return: NotNullIfNotNull("context")]
+        public string? VisitNickname([MaybeNull] ShowdownParser.NicknameContext? context) =>
+            _visitor.VisitNickname(context) as string;
 
-        public string VisitName(ShowdownParser.NameContext context) => _visitor.VisitName(context) as string;
-        //
-        // [return: NotNullIfNotNull("context")]
-        // public override object? VisitSex([MaybeNull] ShowdownParser.SexContext? context) => context?.GetText();
-        //
+        public string VisitName(ShowdownParser.NameContext context) =>
+            _visitor.VisitName(context) as string
+            ?? throw new ShowdownSemanticException("Pokemon name should not be null");
+
+        [return: NotNullIfNotNull("context")]
+        public Sex? VisitSex([MaybeNull] ShowdownParser.SexContext? context) => (Sex?) _visitor.VisitSex(context);
+
         // [return: NotNullIfNotNull("context")]
         // public override object? VisitItem([MaybeNull] ShowdownParser.ItemContext? context) => context == null
         //     ? null
@@ -66,4 +82,22 @@ namespace PokeCLI.Showdown
         // [return: NotNull]
         // public override object VisitMove(ShowdownParser.MoveContext context) => context.GetText();
     }
+
+    public class ShowdownSemanticException : Exception
+    {
+        public ShowdownSemanticException()
+        {
+        }
+
+        public ShowdownSemanticException(string message)
+            : base(message)
+        {
+        }
+
+        public ShowdownSemanticException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+
 }
