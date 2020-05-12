@@ -62,15 +62,15 @@ public interface IShowdownListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitNickname([NotNull] ShowdownParser.NicknameContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Enter a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterName([NotNull] ShowdownParser.NameContext context);
+	void EnterSpecie([NotNull] ShowdownParser.SpecieContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Exit a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitName([NotNull] ShowdownParser.NameContext context);
+	void ExitSpecie([NotNull] ShowdownParser.SpecieContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ShowdownParser.sex"/>.
 	/// </summary>

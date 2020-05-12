@@ -72,17 +72,17 @@ public partial class ShowdownBaseListener : IShowdownListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitNickname([NotNull] ShowdownParser.NicknameContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Enter a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterName([NotNull] ShowdownParser.NameContext context) { }
+	public virtual void EnterSpecie([NotNull] ShowdownParser.SpecieContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Exit a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitName([NotNull] ShowdownParser.NameContext context) { }
+	public virtual void ExitSpecie([NotNull] ShowdownParser.SpecieContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ShowdownParser.sex"/>.
 	/// <para>The default implementation does nothing.</para>

@@ -65,7 +65,7 @@ public partial class ShowdownBaseVisitor<Result> : AbstractParseTreeVisitor<Resu
 	/// <return>The visitor result.</return>
 	public virtual Result VisitNickname([NotNull] ShowdownParser.NicknameContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Visit a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -73,7 +73,7 @@ public partial class ShowdownBaseVisitor<Result> : AbstractParseTreeVisitor<Resu
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitName([NotNull] ShowdownParser.NameContext context) { return VisitChildren(context); }
+	public virtual Result VisitSpecie([NotNull] ShowdownParser.SpecieContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ShowdownParser.sex"/>.
 	/// <para>

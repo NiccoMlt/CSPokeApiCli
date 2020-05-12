@@ -51,11 +51,11 @@ public interface IShowdownVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitNickname([NotNull] ShowdownParser.NicknameContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ShowdownParser.name"/>.
+	/// Visit a parse tree produced by <see cref="ShowdownParser.specie"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitName([NotNull] ShowdownParser.NameContext context);
+	Result VisitSpecie([NotNull] ShowdownParser.SpecieContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ShowdownParser.sex"/>.
 	/// </summary>

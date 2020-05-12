@@ -31,7 +31,7 @@ namespace PokeCLI.Showdown
         [return: NotNull]
         public override object VisitPokemon([NotNull] ShowdownParser.PokemonContext context) {
             var nick = (string?) VisitNickname(context.nickname());
-            var specie = (string) VisitName(context.name());
+            var specie = (string) VisitSpecie(context.specie());
             var gender = (string?) VisitSex(context.sex()) switch
             {
                 "M" => Sex.Male,
@@ -53,7 +53,7 @@ namespace PokeCLI.Showdown
         public override object? VisitNickname([MaybeNull] ShowdownParser.NicknameContext? context) => context?.GetText();
 
         [return: NotNull]
-        public override object VisitName([NotNull] ShowdownParser.NameContext context) => context.GetText();
+        public override object VisitSpecie([NotNull] ShowdownParser.SpecieContext context) => context.GetText();
 
         [return: NotNullIfNotNull("context")]
         public override object? VisitSex([MaybeNull] ShowdownParser.SexContext? context) => context?.GetText();

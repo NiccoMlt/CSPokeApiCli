@@ -32,8 +32,8 @@ namespace PokeCLI.Showdown
         public string? VisitNickname([MaybeNull] ShowdownParser.NicknameContext? context) =>
             _visitor.VisitNickname(context) as string;
 
-        public string VisitName(ShowdownParser.NameContext context) =>
-            _visitor.VisitName(context) as string
+        public string VisitSpecie(ShowdownParser.SpecieContext context) =>
+            _visitor.VisitSpecie(context) as string
             ?? throw new ShowdownSemanticException("Pokemon name should not be null");
 
         [return: NotNullIfNotNull("context")]
