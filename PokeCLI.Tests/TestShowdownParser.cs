@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Antlr4.Runtime;
+using AutoFixture.Xunit2;
 using PokeCLI.Showdown;
 using PokeCLI.Showdown.Grammar;
 using Xunit;
@@ -44,14 +45,11 @@ namespace PokeCLI.Tests
             var lexer = new ShowdownLexer(stream);
             var tokens = new CommonTokenStream(lexer);
             var parser = new ShowdownParser(tokens);
-            var errorListener = new ConsoleErrorListener<IToken>();
-            parser.RemoveErrorListeners();
-            parser.AddErrorListener(errorListener);
 
             var tree = parser.team();
             var parsed = tree.pokemon().Select(pkmn => pkmn.GetFullText());
             Assert.Equal(expected.Count(), parsed.Count());
-
+            // TODO: test each pokemon
         }
 
         [Theory]
@@ -85,26 +83,76 @@ namespace PokeCLI.Tests
             var lexer = new ShowdownLexer(stream);
             var tokens = new CommonTokenStream(lexer);
             var parser = new ShowdownParser(tokens);
-            var errorListener = new ConsoleErrorListener<IToken>();
-            parser.RemoveErrorListeners();
-            parser.AddErrorListener(errorListener);
-            // var errorListener = new DiagnosticErrorListener();
-            // parser.RemoveErrorListeners();
-            // parser.AddErrorListener(errorListener);
 
             var tree = parser.pokemon();
+            Assert.Null(tree.exception);
             Assert.Equal(nickname, tree.nickname()?.GetFullText());
             Assert.Equal(name, tree.specie()?.GetFullText());
             Assert.Equal(sex, tree.sex()?.GetText());
             Assert.Equal(ability, tree.ability()?.GetFullText());
             Assert.Equal(evs, tree.evs().stats()?.GetFullText());
-            Assert.Equal(ivs, tree!.ivs()?.GetText());
+            Assert.Equal(ivs, tree.ivs()?.GetText());
             Assert.Equal(nature, tree.nature()?.GetText());
             Assert.Equal(item, tree.item()?.GetFullText());
             Assert.Equal(
                 moves,
                 tree.moves()?.move()?.Select(context => context.GetFullText())
             );
+        }
+
+        [Theory]
+        [AutoData]
+        public void ShowdownParser_Nickname_Parses(string nickname)
+        {
+            var stream = new AntlrInputStream(nickname);
+            var lexer = new ShowdownLexer(stream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            var tree = parser.nickname();
+            Assert.Null(tree.exception);
+            Assert.Equal(nickname, tree.GetFullText());
+        }
+
+        [Theory]
+        [AutoData]
+        public void ShowdownParser_Specie_Parses(string specie)
+        {
+            var stream = new AntlrInputStream(specie);
+            var lexer = new ShowdownLexer(stream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            var tree = parser.specie();
+            Assert.Null(tree.exception);
+            Assert.Equal(specie, tree.GetFullText());
+        }
+
+        [Theory]
+        [InlineData("M")]
+        [InlineData("F")]
+        public void ShowdownParser_Sex_Parses(string gender)
+        {
+            var stream = new AntlrInputStream(gender);
+            var lexer = new ShowdownLexer(stream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            var tree = parser.sex();
+            Assert.Null(tree.exception);
+            Assert.Equal(gender, tree.GetFullText());
+        }
+
+        [Fact]
+        public void ShowdownParser_Sex_NotParses()
+        {
+            string gender = "foo";
+            var stream = new AntlrInputStream(gender);
+            var lexer = new ShowdownLexer(stream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            var tree = parser.sex();
+            Assert.NotNull(tree);
+            var exception = tree.exception;
+            Assert.NotNull(exception);
+            Assert.IsType<InputMismatchException>(exception);
         }
     }
 }
