@@ -137,4 +137,7 @@
 #*.filters   merge=binary
 #*.vcxitems  merge=binary
 
-PokeCLI/reference/* linguist-generated
+PokeCLI/Resources/*                 linguist-generated
+PokeCLI/Showdown/Grammar/*.cs       linguist-generated
+PokeCLI/Showdown/Grammar/*.tokens   linguist-generated
+PokeCLI/Showdown/Grammar/*.interp   linguist-generated
