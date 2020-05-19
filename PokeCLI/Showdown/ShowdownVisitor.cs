@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using PokeCLI.Showdown.Grammar;
 
 namespace PokeCLI.Showdown
@@ -73,14 +74,14 @@ namespace PokeCLI.Showdown
         //
         // [return: NotNull]
         // public override object VisitNature(ShowdownParser.NatureContext context) => context.GetText();
-        //
-        // [return: NotNull]
-        // public override object VisitMoves(ShowdownParser.MovesContext context) => context.move()
-        //     .Select(move => (string) VisitMove(move))
-        //     .ToList();
-        //
-        // [return: NotNull]
-        // public override object VisitMove(ShowdownParser.MoveContext context) => context.GetText();
+
+        [return: NotNull]
+        public IEnumerable<string> VisitMoves(ShowdownParser.MovesContext context) => (IEnumerable<string>) _visitor.VisitMoves(context)!;
+
+        [return: NotNull]
+        public string VisitMove(ShowdownParser.MoveContext context) =>
+            _visitor.VisitMove(context) as string
+            ?? throw new ShowdownSemanticException("Pokemon move should not be null");
     }
 
     public class ShowdownSemanticException : Exception

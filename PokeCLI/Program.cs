@@ -9,7 +9,7 @@ namespace PokeCLI
 {
     using Showdown.Grammar;
 
-    class ShowdownOptions
+    public class ShowdownOptions
     {
         public ShowdownOptions(string inputPath)
         {

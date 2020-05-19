@@ -11,7 +11,7 @@ using Xunit;
 
 namespace PokeCLI.Tests
 {
-    public class TestShowdownParser
+    public class ShowdownParserTests
     {
         [Theory]
         [InlineData(@"WC2019-Lax.sdt", new [] {

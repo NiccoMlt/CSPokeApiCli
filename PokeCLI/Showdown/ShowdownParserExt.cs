@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
+using PokeCLI.Showdown.Grammar;
 
 namespace PokeCLI.Showdown
 {
@@ -23,6 +25,17 @@ namespace PokeCLI.Showdown
                    || context.Stop.StopIndex < 0
                 ? context.GetText() // Fallback
                 : context.Start.InputStream.GetText(Interval.Of(context.Start.StartIndex, context.Stop.StopIndex));
+        }
+
+        public static ShowdownParser GetShowdownParser(this string document) => GetShowdownParserFromString(document);
+
+        public static ShowdownParser GetShowdownParserFromString(string? document)
+        {
+            var stream = new AntlrInputStream(document);
+            var lexer = new ShowdownLexer(stream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new ShowdownParser(tokens);
+            return parser;
         }
     }
 }
